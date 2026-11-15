@@ -1,0 +1,10 @@
+title: Igunis
+description: 보안과 시스템을 공부하며 남기는 기술 기록
+url: https://igunis.github.io
+baseurl: ""
+lang: ko-KR
+timezone: Asia/Seoul
+markdown: kramdown
+permalink: /writing/:title/
+exclude:
+  - README.md

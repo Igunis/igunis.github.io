@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="post-wrap">
+  <a class="back-link" href="{{ '/writing/' | relative_url }}"><span aria-hidden="true">←</span> 모든 글</a>
+  <header class="post-header">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> {{ page.category | default: 'Notes' }}</div>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.description %}<p class="post-lead">{{ page.description | escape }}</p>{% endif %}
+    <div class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time>{% if page.tags.size > 0 %}<span class="meta-divider" aria-hidden="true">/</span><span>{{ page.tags | join: ' · ' }}</span>{% endif %}</div>
+  </header>
+  <div class="prose">{{ content }}</div>
+  <div class="post-end"><span>END OF NOTE <span aria-hidden="true">↗</span></span><a href="{{ '/writing/' | relative_url }}">글 목록으로 돌아가기 →</a></div>
+</article>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'ko-KR' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0c1110">
+    <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+    <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="Igunis 홈">
+          <span class="brand-mark" aria-hidden="true">I<span>.</span></span>
+          <span class="brand-name">IGUNIS</span>
+        </a>
+        <nav class="site-nav" aria-label="주 메뉴">
+          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
+          <a href="{{ '/writing/' | relative_url }}" {% if page.url contains '/writing/' %}aria-current="page"{% endif %}>Writing</a>
+          <a href="{{ '/projects/' | relative_url }}" {% if page.url contains '/projects/' %}aria-current="page"{% endif %}>Projects</a>
+          <a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about/' %}aria-current="page"{% endif %}>About</a>
+        </nav>
+      </header>
+      <main id="main">{{ content }}</main>
+      <footer class="site-footer">
+        <div><span class="footer-brand">IGUNIS<span>.</span></span><p>질문을 따라가고, 과정을 기록합니다.</p></div>
+        <div class="footer-links">
+          <a href="https://github.com/Igunis" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="{{ '/writing/' | relative_url }}">Writing <span aria-hidden="true">→</span></a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
